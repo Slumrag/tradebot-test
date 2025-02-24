@@ -1,13 +1,22 @@
 import React, { PropsWithChildren } from 'react';
 import BottomNav from './components/BottomNav/BottomNav';
 import TopBar from './components/TopBar/TopBar';
-import { Paper } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Paper sx={{ borderRadius: 0 }}>
+    <Paper
+      square
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <TopBar></TopBar>
-      {children}
+      <Box flex={1} component='main'>
+        {children}
+      </Box>
       <BottomNav></BottomNav>
     </Paper>
   );

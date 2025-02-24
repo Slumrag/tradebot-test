@@ -4,10 +4,9 @@ export const themeOptions: ThemeOptions = createTheme({
   palette: {
     mode: 'dark',
 
-    // primary: {
-    //   main: '#FFFFFF',
-    // },
-
+    warning: {
+      main: '#e4972d',
+    },
     text: {
       secondary: '#546076',
     },
@@ -26,6 +25,7 @@ export const themeOptions: ThemeOptions = createTheme({
       styleOverrides: {
         root: {
           background: '#232c3e',
+          height: 50,
         },
       },
     },
