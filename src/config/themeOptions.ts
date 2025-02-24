@@ -12,7 +12,7 @@ export const themeOptions: ThemeOptions = createTheme({
     },
     background: {
       default: '#1d2637',
-      paper: '#1d2637',
+      paper: '#112135',
     },
   },
   components: {
@@ -24,7 +24,7 @@ export const themeOptions: ThemeOptions = createTheme({
     MuiBottomNavigation: {
       styleOverrides: {
         root: {
-          background: '#232c3e',
+          background: '#18283c',
           height: 50,
         },
       },

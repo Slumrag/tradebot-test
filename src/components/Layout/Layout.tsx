@@ -7,6 +7,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Paper
       square
+      elevation={0}
       sx={{
         display: 'flex',
         flexDirection: 'column',
