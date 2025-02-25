@@ -6,9 +6,10 @@ type BalanceProps = {
   capital: number;
   balance: number;
   onHold: number;
+  currency?: string;
 };
 
-const Balance: React.FC<BalanceProps> = ({ capital, balance, onHold }) => {
+const Balance: React.FC<BalanceProps> = ({ capital, balance, onHold, currency = 'btc' }) => {
   return (
     <Box display={'flex'} justifyContent={'space-between'} fontSize={12} sx={{ p: '0 12px' }}>
       <Box>
@@ -23,7 +24,7 @@ const Balance: React.FC<BalanceProps> = ({ capital, balance, onHold }) => {
           trading capital
         </Typography>
         <Typography fontSize={34} lineHeight={1} mt={'4px'}>
-          {capital} BTC
+          {capital} {currency.toUpperCase()}
         </Typography>
       </Box>
       <Box alignSelf={'end'} display={'flex'} rowGap={'3px'} flexDirection={'column'}>
