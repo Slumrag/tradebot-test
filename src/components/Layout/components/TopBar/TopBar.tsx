@@ -9,7 +9,7 @@ const TopBar = () => {
     <AppBar
       position='static'
       sx={{
-        fontSize: 18,
+        fontSize: 17,
         color: 'text.secondary',
         background: ['radial-gradient(ellipse at 50% 0, rgba(0,106,186,0.3) 0%, transparent 50%)'],
       }}
@@ -18,7 +18,7 @@ const TopBar = () => {
         <IconButton size='small' color='inherit'>
           <BurgerIcon fontSize='inherit' />
         </IconButton>
-        <Box flexGrow={1} sx={{}}>
+        <Box flexGrow={1}>
           <Typography component='h1' fontWeight={'bold'} textAlign={'center'} fontSize={'inherit'}>
             Dashboard
           </Typography>

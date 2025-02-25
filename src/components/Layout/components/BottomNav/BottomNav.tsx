@@ -10,11 +10,12 @@ const style: SxProps<Theme> = (theme) => ({
   '& .MuiBottomNavigationAction-root': {
     minWidth: 50,
     p: '0 6px',
+    fontSize: 22,
   },
   '& .MuiBottomNavigationAction-label': {
     fontSize: theme.typography.fontSize * 0.75,
     position: 'relative',
-    top: 6,
+    top: 5,
   },
   '& .MuiBottomNavigationAction-label.Mui-selected': {
     fontSize: theme.typography.fontSize * 0.75,
@@ -28,10 +29,10 @@ const BottomNav = () => {
   const [selected, setSelected] = useState(0);
   return (
     <BottomNavigation showLabels value={selected} sx={style} onChange={(_, v) => setSelected(v)}>
-      <BottomNavigationAction label='Dashboard' icon={<DashboardIcon fontSize='small' />} />
-      <BottomNavigationAction label='Megabot' icon={<ChartIcon fontSize='small' />} />
-      <BottomNavigationAction label='Bot market' icon={<CartIcon fontSize='small' />} />
-      <BottomNavigationAction label='Coin prices' icon={<CoinIcon fontSize='small' />} />
+      <BottomNavigationAction label='Dashboard' icon={<DashboardIcon fontSize='inherit' />} />
+      <BottomNavigationAction label='Megabot' icon={<ChartIcon fontSize='inherit' />} />
+      <BottomNavigationAction label='Bot market' icon={<CartIcon fontSize='inherit' />} />
+      <BottomNavigationAction label='Coin prices' icon={<CoinIcon fontSize='inherit' />} />
       <BottomNavigationAction
         label='Profile'
         icon={
@@ -52,7 +53,7 @@ const BottomNav = () => {
               },
             })}
           >
-            <SettingsIcon fontSize='small' />
+            <SettingsIcon fontSize='inherit' />
           </Badge>
         }
       />
