@@ -6,3 +6,5 @@ export { default as CurrencyIcon } from './CurrencyIcon';
 export { default as DashboardIcon } from './DashboardIcon';
 export { default as RefreshIcon } from './RefreshIcon';
 export { default as SettingsIcon } from './SettingsIcon';
+export { default as SpaceInvaderIcon } from './SpaceInvaderIcon';
+export { default as SpaceInvader2Icon } from './SpaceInvader2Icon';
