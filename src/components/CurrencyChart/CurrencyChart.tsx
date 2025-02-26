@@ -1,6 +1,6 @@
 import { TimeSeriesData } from '@/utils/generateTimeSeries';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
-import { LineChart } from '@mui/x-charts';
+import { chartsGridClasses, LineChart } from '@mui/x-charts';
 import React, { ReactNode } from 'react';
 import { TimeRange } from '@/api/types/TimeRange';
 
@@ -26,6 +26,15 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
     {
       '& .MuiAreaElement-root': {
         fill: 'url(#myGradient)',
+      },
+      [`& .${chartsGridClasses.horizontalLine}`]: {
+        strokeWidth: '0.5',
+        stroke: '#1c2e45',
+      },
+      [`& .${chartsGridClasses.verticalLine}`]: {
+        strokeDasharray: '1 1',
+        stroke: '#004f88',
+        strokeOpacity: '0.5',
       },
     },
     ...(Array.isArray(chartSx) ? chartSx : [chartSx]),
@@ -90,24 +99,24 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
             tickLabelStyle: {
               fill: theme.palette.text.secondary,
               fontSize: 10,
-              baselineShift: '-8px',
+              baselineShift: '-10px',
             },
             ...axisConfig(timeRange),
           },
         ]}
+        yAxis={[{ tickNumber: 8 }]}
         dataset={data}
         series={[
           {
             dataKey: 'value',
             area: true,
+            showMark: false,
+            disableHighlight: true,
             color,
           },
         ]}
-        slotProps={{
-          mark: { display: 'none' },
-        }}
         leftAxis={null}
-        grid={{ horizontal: true }}
+        grid={{ horizontal: true, vertical: true }}
         margin={{ left: 0, right: 0, bottom: 24, top: 8 }}
         sx={style}
       >
