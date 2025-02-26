@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="23.812mm" height="23.812mm" version="1.1" viewBox="0 0 23.812 23.812" xmlns="http://www.w3.org/2000/svg">
- <g transform="translate(-78.808 -82.21)">
+<defs>
+ <filter id='floodFilter' x="0" y="0"  primitiveUnits="objectBoundingBox" >
+    <feFlood
+        x="50%"
+        result="floodFill"
+        width="50%"
+        flood-color="black"
+        flood-opacity="0.1" />
+
+      <feBlend  in="floodFill"  in2="SourceGraphic"  result="blend" />
+      <feComposite in2="SourceGraphic" in="blend" operator="atop"/>
+  </filter>
+  </defs>
+ <g transform="translate(-78.808 -82.21)"  filter="url(#floodFilter)">
   <path d="m84.1 104.7v-1.3229h2.6458v-2.6458h-2.6458v-5.2917h-2.6458v5.2917h-2.6458v-7.9375h2.6458v-2.6458h2.6458v-2.6458h2.6458v-2.6458h-2.6458v-2.6458h2.6458v2.6458h2.6458v2.6458h2.6458v-2.6458h2.6458v-2.6458h2.6458v2.6458h-2.6458v2.6458h2.6458v2.6458h2.6458v2.6458h2.6458v7.9375h-2.6458v-5.2917h-2.6458v5.2917h-2.6458v2.6458h2.6458v2.6458h-5.2917v-5.2917h-2.6458v5.2917h-5.2917zm5.2917-13.229v-1.3229h-2.6458v2.6458h2.6458zm5.2917 0v-1.3229h-2.6458v2.6458h2.6458z"/>
  </g>
 </svg>
