@@ -10,6 +10,9 @@ export const themeOptions: ThemeOptions = createTheme({
     text: {
       secondary: '#546076',
     },
+    success: {
+      main: '#78a659',
+    },
     background: {
       default: '#1d2637',
       paper: '#112135',
