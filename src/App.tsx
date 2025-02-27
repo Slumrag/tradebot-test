@@ -67,7 +67,12 @@ function App() {
               </Typography>
             }
           />
-          <BotSelector value={bot} onSelect={handleBotSelect} profits={profits} />
+          <BotSelector
+            value={bot}
+            onSelect={handleBotSelect}
+            profits={profits}
+            sx={{ p: '0 14px' }}
+          />
           <TimeRangeSelector
             value={timeRange}
             onClick={handleTimeRangeSelect}

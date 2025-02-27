@@ -1,4 +1,4 @@
-export const botColors = {
+export const botColors: Record<string, string> = {
   yellow_bot: '#ffdb00',
   white_bot: 'white',
   green_bot: '#5ea853',

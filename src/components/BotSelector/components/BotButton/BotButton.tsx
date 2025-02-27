@@ -29,8 +29,14 @@ const BotButton: React.FC<BotButtonProps> = ({
         flexDirection: 'column',
         height: 105,
         width: 115,
-        '&.selected, &:active': {
+        '&.selected, &:not(:disabled):active': {
           boxShadow: 'inset 0px 0px 30px -15px #207bd7',
+        },
+        '&.Mui-disabled:disabled': {
+          backgroundColor: '#1b293e',
+          '.MuiTypography-root': {
+            color: 'text.secondary',
+          },
         },
         ...sx,
       }}
@@ -42,6 +48,7 @@ const BotButton: React.FC<BotButtonProps> = ({
         fontWeight='bold'
         textTransform={'uppercase'}
         fontSize={'10px'}
+        color='textPrimary'
       >
         {title}
       </Typography>
