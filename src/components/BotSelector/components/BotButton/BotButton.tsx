@@ -54,7 +54,7 @@ const BotButton: React.FC<BotButtonProps> = ({
           color={profit! < 0 ? 'error' : 'success'}
         >
           {profit! > 0 ? '+' : ''}
-          {profit?.toPrecision(2)}%
+          {profit?.toFixed(2)}%
         </Typography>
       )}
     </Button>
