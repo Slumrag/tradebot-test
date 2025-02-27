@@ -4,11 +4,11 @@ export const themeOptions: ThemeOptions = createTheme({
   palette: {
     mode: 'dark',
 
-    warning: {
-      main: '#e4972d',
-    },
     text: {
       secondary: '#546076',
+    },
+    warning: {
+      main: '#e4972d',
     },
     success: {
       main: '#78a659',
