@@ -2,7 +2,7 @@ import { Grid2, SxProps } from '@mui/material';
 import React, { ReactNode } from 'react';
 import { SpaceInvader2Icon, SpaceInvaderIcon } from '@/components/icons';
 import BotButton from './components/BotButton/BotButton';
-import { botColors } from './components/BotButton/botColors';
+import { botColors } from '@/const/botColors';
 
 export type BotSelectorProps = {
   onSelect?: (botName: string) => void;
