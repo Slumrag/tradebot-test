@@ -16,7 +16,8 @@ function App() {
   const [tradingData, setTradingData] = useState<TradingData>();
   const [timeSeries, setTimeSeries] = useState<TimeSeriesData>([]);
   const [bot, setBot] = useState('red_bot');
-  const [timeRange, setTimeRange] = useState<TimeRange>('allTime');
+  const [timeRange, setTimeRange] = useState<TimeRange>('all_time');
+  const [profits, setProfits] = useState({});
 
   const handleBotSelect = (bot: string) => {
     setBot(bot);

@@ -17,7 +17,7 @@ export function getBotChart(bot: string, range: TimeRange = '7d'): Promise<TimeS
     case '30d':
       days = 30;
       break;
-    case 'allTime':
+    case 'all_time':
       days = 365;
       break;
   }

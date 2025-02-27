@@ -1,1 +1,1 @@
-export type TimeRange = '24h' | '7d' | '30d' | 'allTime';
+export type TimeRange = '24h' | '7d' | '30d' | 'all_time';
