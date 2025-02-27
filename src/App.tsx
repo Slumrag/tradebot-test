@@ -9,13 +9,16 @@ import { TradingData } from './api/types/TradingData';
 import { type TimeSeriesData } from './utils/generateTimeSeries';
 import { getBotChart } from './api/mock/getBotChart';
 import { TimeRange } from './api/types/TimeRange';
+import BotSelector from './components/BotSelector';
 
 function App() {
   const [tradingData, setTradingData] = useState<TradingData>();
   const [timeSeries, setTimeSeries] = useState<TimeSeriesData>([]);
-  const [bot, setBot] = useState('bot');
+  const [bot, setBot] = useState('red_bot');
   const [timeRange, setTimeRange] = useState<TimeRange>('allTime');
-
+  const handleBotSelect = (bot: string) => {
+    setBot(bot);
+  };
   useEffect(() => {
     const fetchData = async () => {
       const data = await getTradingData();
@@ -43,7 +46,7 @@ function App() {
               </Typography>
             }
           />
-          {/* <Box flex={1}></Box> */}
+          <BotSelector value={bot} onSelect={handleBotSelect} />
         </Layout>
       </ThemeProvider>
     </>
