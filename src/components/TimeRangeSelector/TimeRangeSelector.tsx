@@ -13,7 +13,7 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
     { label: '24h', value: '24h' },
     { label: '7 days', value: '7d' },
     { label: '30 days', value: '30d' },
-    { label: 'All time', value: 'allTime' },
+    { label: 'All time', value: 'all_time' },
   ];
   return (
     <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} sx={sx}>
@@ -21,8 +21,9 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
         Time range:
       </Typography>
       <Stack direction={'row'} columnGap={'10px'}>
-        {chips.map((el) => (
+        {chips.map((el, idx) => (
           <Chip
+            key={idx}
             label={el.label}
             onClick={() => onClick && onClick(el.value)}
             variant='outlined'
