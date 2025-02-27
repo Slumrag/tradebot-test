@@ -4,8 +4,6 @@ import { themeOptions } from './config/themeOptions';
 import Balance from './components/Balance';
 import CurrencyChart from './components/CurrencyChart';
 import { useEffect, useState } from 'react';
-import { getTradingData } from './api/mock/getTradingData';
-import { TradingData } from './api/types/TradingData';
 import { type TimeSeriesData } from './utils/generateTimeSeries';
 import { getBotChart } from './api/mock/getBotChart';
 import { TimeRange } from './api/types/TimeRange';
@@ -14,10 +12,9 @@ import TimeRangeSelector from './components/TimeRangeSelector';
 import { getBotProfits } from './api/mock/getBotProfits';
 
 function App() {
-  const [tradingData, setTradingData] = useState<TradingData>();
   const [timeSeries, setTimeSeries] = useState<TimeSeriesData>([]);
-  const [bot, setBot] = useState('red_bot');
-  const [timeRange, setTimeRange] = useState<TimeRange>('all_time');
+  const [bot, setBot] = useState<string>();
+  const [timeRange, setTimeRange] = useState<TimeRange>();
   const [profits, setProfits] = useState({});
 
   const handleBotSelect = (bot: string) => {
@@ -26,15 +23,29 @@ function App() {
   const handleTimeRangeSelect = (time: TimeRange) => {
     setTimeRange(time);
   };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getTradingData();
-      setTradingData(data);
-    };
-    fetchData();
+    const storedRange = localStorage.getItem('timeRange');
+    if (storedRange === null) {
+      localStorage.setItem('timeRange', 'all_time');
+      setTimeRange('all_time');
+    } else {
+      setTimeRange(storedRange as TimeRange);
+    }
+
+    const storedBot = localStorage.getItem('bot');
+    if (storedBot === null) {
+      localStorage.setItem('bot', 'red_bot');
+      setBot('red_bot');
+    } else {
+      setBot(storedBot);
+    }
   }, []);
 
   useEffect(() => {
+    if (timeRange) {
+      localStorage.setItem('timeRange', timeRange);
+    }
     const fetchData = async () => {
       const profits = await getBotProfits(timeRange);
       setProfits(profits);
@@ -43,6 +54,15 @@ function App() {
   }, [timeRange]);
 
   useEffect(() => {
+    if (bot) {
+      localStorage.setItem('bot', bot);
+    }
+  }, [bot]);
+
+  useEffect(() => {
+    if (!bot) {
+      return;
+    }
     const fetchData = async () => {
       const time = await getBotChart(bot, timeRange);
       setTimeSeries(time);
@@ -63,7 +83,7 @@ function App() {
             sx={{ height: 192 }}
             textOverlay={
               <Typography color='success.main' fontSize={23} lineHeight={'inherit'}>
-                +32.25%
+                +32.6%
               </Typography>
             }
           />
