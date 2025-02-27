@@ -11,6 +11,7 @@ import { getBotChart } from './api/mock/getBotChart';
 import { TimeRange } from './api/types/TimeRange';
 import BotSelector from './components/BotSelector';
 import TimeRangeSelector from './components/TimeRangeSelector';
+import { getBotProfits } from './api/mock/getBotProfits';
 
 function App() {
   const [tradingData, setTradingData] = useState<TradingData>();
@@ -29,11 +30,25 @@ function App() {
     const fetchData = async () => {
       const data = await getTradingData();
       setTradingData(data);
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const profits = await getBotProfits(timeRange);
+      setProfits(profits);
+    };
+    fetchData();
+  }, [timeRange]);
+
+  useEffect(() => {
+    const fetchData = async () => {
       const time = await getBotChart(bot, timeRange);
       setTimeSeries(time);
     };
     fetchData();
-  }, []);
+  }, [timeRange, bot]);
 
   return (
     <>
@@ -52,7 +67,7 @@ function App() {
               </Typography>
             }
           />
-          <BotSelector value={bot} onSelect={handleBotSelect} />
+          <BotSelector value={bot} onSelect={handleBotSelect} profits={profits} />
           <TimeRangeSelector
             value={timeRange}
             onClick={handleTimeRangeSelect}
