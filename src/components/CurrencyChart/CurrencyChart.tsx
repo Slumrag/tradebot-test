@@ -60,7 +60,7 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
             return value.toLocaleDateString().slice(0, -5);
           },
         };
-      case 'allTime':
+      case 'all_time':
         return {
           valueFormatter(value: Date) {
             return value.toLocaleDateString();
