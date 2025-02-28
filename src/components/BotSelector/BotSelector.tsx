@@ -1,4 +1,4 @@
-import { Grid2, SxProps } from '@mui/material';
+import { Box,  SxProps } from '@mui/material';
 import React, { ReactNode } from 'react';
 import { SpaceInvader2Icon, SpaceInvaderIcon } from '@/components/icons';
 import BotButton from './components/BotButton/BotButton';
@@ -77,33 +77,52 @@ const BotSelector: React.FC<BotSelectorProps> = ({ value, onSelect, profits, sx 
     },
   ];
   return (
-    <Grid2 container spacing={'1px'} fontSize={45} sx={sx}>
+    <Box
+      sx={{
+        fontSize: 45,
+        display: 'grid',
+        gap: '1px',
+        gridTemplateColumns: 'repeat(3,minmax(0,1fr))',
+        gridTemplateRows: 'repeat(2,minmax(0,1fr))',
+        justifyContent: 'center',
+        ...sx,
+      }}
+    >
       {bots.map(({ name, title, icon }, idx) => {
         const button = (
-          <Grid2 key={idx}>
-            <BotButton
-              onClick={() => onSelect && onSelect(name)}
-              selected={value === name}
-              icon={icon}
-              title={title}
-              disabled={!name}
-              sx={{
-                color: botColors?.[name],
-              }}
-              profit={profits?.[name]}
-            />
-          </Grid2>
+          <BotButton
+            key={idx}
+            onClick={() => onSelect && onSelect(name)}
+            selected={value === name}
+            icon={icon}
+            title={title}
+            disabled={!name}
+            sx={{
+              aspectRatio: 115 / 105,
+              width: '100%',
+              height: 'auto',
+              color: botColors?.[name],
+            }}
+            profit={profits?.[name]}
+          />
         );
 
         return name === 'yellow_bot' ? (
-          <RadialRenderer key={idx} config={wrapperConfig}>
+          <RadialRenderer
+            key={idx}
+            config={wrapperConfig}
+            sx={{
+              width: '100%',
+              height: 'auto',
+            }}
+          >
             {button}
           </RadialRenderer>
         ) : (
           button
         );
       })}
-    </Grid2>
+    </Box>
   );
 };
 

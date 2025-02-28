@@ -17,10 +17,9 @@ const RadialRenderer: React.FC<StreakWrapperProps> = ({ config, sx, children }) 
   //x = r cos θ , y = r sin θ
   return (
     <Box
-      position={'relative'}
-      display='flex'
-      component={'span'}
       sx={{
+        display: 'flex',
+        position: 'relative',
         ...sx,
       }}
     >

@@ -27,8 +27,7 @@ const BotButton: React.FC<BotButtonProps> = ({
         backgroundColor: '#1b293e',
         boxShadow: 'none',
         flexDirection: 'column',
-        height: 105,
-        width: 115,
+
         '&.selected, &:not(:disabled):active': {
           boxShadow: 'inset 0px 0px 30px -15px #207bd7',
         },
