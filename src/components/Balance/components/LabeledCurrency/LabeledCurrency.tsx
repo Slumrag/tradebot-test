@@ -13,11 +13,12 @@ const LabeledCurrency: React.FC<LabeledCurrencyProps> = ({ value, label }) => {
       justifyContent={'space-between'}
       color='text.secondary'
       alignItems={'center'}
-      columnGap={'6px'}
+      columnGap={'0.5em'}
       lineHeight={1}
     >
       <Typography
         component='h3'
+        variant='h3'
         textTransform={'uppercase'}
         fontWeight={'bold'}
         fontSize={'inherit'}
@@ -35,7 +36,7 @@ const LabeledCurrency: React.FC<LabeledCurrencyProps> = ({ value, label }) => {
       >
         {value.toLocaleString('ru-RU')}
       </Typography>
-      <CurrencyIcon color='inherit' sx={{ fontSize: 15, overflow: 'visible' }} />
+      <CurrencyIcon color='inherit' sx={{ fontSize: '1.25em', overflow: 'visible' }} />
     </Box>
   );
 };
