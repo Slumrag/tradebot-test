@@ -38,7 +38,7 @@ const RadialRenderer: React.FC<StreakWrapperProps> = ({ config, sx, children }) 
               sx={{
                 display: 'flex',
                 position: 'absolute',
-                zIndex: 1,
+                zIndex: 100,
                 top: `calc(50% - ${height / 2}px)`,
                 left: '50%',
                 transformOrigin: '0 50%',

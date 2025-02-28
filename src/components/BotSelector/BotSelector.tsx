@@ -32,8 +32,14 @@ const BotSelector: React.FC<BotSelectorProps> = ({ value, onSelect, profits, sx 
     { name: 'red_bot', title: 'attack', icon: <SpaceInvaderIcon fontSize={'inherit'} /> },
   ];
   const degToRad = (angle: number) => (Math.PI / 180) * angle;
-  const getGradient = (color: string) =>
-    `linear-gradient(to right,${botColors['yellow_bot']} 0%,${color} 50%, ${color} 100%)`;
+  const getGradient = (color1: string, color2: string) =>
+    `linear-gradient(to right,${color1} 0%, ${color2} 100%)`;
+  const gradientColors = {
+    yellow: '#e4972d',
+    pink: '#ea4c89',
+    violet: '#8983d2',
+    green: '#78a659',
+  };
 
   const radius = 35;
   const wrapperConfig: ItemConfig[] = [
@@ -41,25 +47,33 @@ const BotSelector: React.FC<BotSelectorProps> = ({ value, onSelect, profits, sx 
       angle: 0,
       radius,
       offset: [0, 1],
-      component: <Streak variant='hor' gradient={getGradient(botColors['red_bot'])} />,
+      component: (
+        <Streak variant='hor' gradient={getGradient(gradientColors.yellow, gradientColors.pink)} />
+      ),
     },
     {
       angle: degToRad(-135),
       radius: radius + 20,
       offset: [0, 4],
-      component: <Streak variant='lt' gradient={getGradient(botColors['orange_bot'])} />,
+      component: (
+        <Streak variant='lt' gradient={getGradient(gradientColors.yellow, gradientColors.pink)} />
+      ),
     },
     {
       angle: degToRad(180),
       radius,
       offset: [0, 1],
-      component: <Streak variant='hor' gradient={getGradient(botColors['green_bot'])} />,
+      component: (
+        <Streak variant='hor' gradient={getGradient(gradientColors.yellow, gradientColors.green)} />
+      ),
     },
     {
       angle: degToRad(-45),
       radius: radius + 22,
       offset: [0, 2],
-      component: <Streak variant='rt' gradient={getGradient(botColors['blue_bot'])} />,
+      component: (
+        <Streak variant='rt' gradient={getGradient(gradientColors.yellow, gradientColors.violet)} />
+      ),
     },
   ];
   return (
