@@ -35,7 +35,7 @@ const LabeledCurrency: React.FC<LabeledCurrencyProps> = ({ value, label }) => {
       >
         {value.toLocaleString('ru-RU')}
       </Typography>
-      <CurrencyIcon color='inherit' sx={{ fontSize: 15 }} />
+      <CurrencyIcon color='inherit' sx={{ fontSize: 15, overflow: 'visible' }} />
     </Box>
   );
 };
