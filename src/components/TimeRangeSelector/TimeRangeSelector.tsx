@@ -53,7 +53,7 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
               fontSize: 'inherit',
               maxWidth: 60,
               width: '100%',
-              minHeight: '2em',
+              maxHeight: '2em',
               color: 'text.secondary',
               borderColor: '#273246',
               '& .MuiChip-label': {
