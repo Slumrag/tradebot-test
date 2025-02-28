@@ -15,7 +15,15 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
       }}
     >
       <TopBar></TopBar>
-      <Box flex={1} component='main' display={'flex'} flexDirection={'column'} gap={2}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 1,
+          gap: 2,
+          pb: 2,
+        }}
+      >
         {children}
       </Box>
       <BottomNav></BottomNav>
