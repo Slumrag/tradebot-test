@@ -40,6 +40,7 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
         columnGap={'0.83em'}
         sx={{
           flex: 1,
+          justifyContent: 'flex-end',
         }}
       >
         {chips.map((el, idx) => (
