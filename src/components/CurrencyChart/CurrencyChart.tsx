@@ -1,6 +1,6 @@
 import { TimeSeriesData } from '@/utils/generateTimeSeries';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
-import { chartsGridClasses, LineChart } from '@mui/x-charts';
+import { axisClasses, chartsGridClasses, LineChart, lineElementClasses } from '@mui/x-charts';
 import React, { ReactNode } from 'react';
 import { TimeRange } from '@/api/types/TimeRange';
 
@@ -24,6 +24,9 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
   const theme = useTheme();
   const style: SxProps<Theme> = [
     {
+      [`& .${lineElementClasses.root}`]: {
+        strokeWidth: 1,
+      },
       '& .MuiAreaElement-root': {
         fill: 'url(#myGradient)',
       },
@@ -122,7 +125,8 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
       >
         <defs>
           <linearGradient id='myGradient' gradientTransform='rotate(90)'>
-            <stop offset='30%' stopColor={color} stopOpacity='50%' />
+            <stop offset='0%' stopColor={color} stopOpacity='45%' />
+            <stop offset='88%' stopColor={color} stopOpacity='1%' />
             <stop offset='100%' stopColor='transparent' />
           </linearGradient>
         </defs>
