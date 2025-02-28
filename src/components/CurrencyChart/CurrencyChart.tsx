@@ -1,6 +1,6 @@
 import { TimeSeriesData } from '@/utils/generateTimeSeries';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
-import { axisClasses, chartsGridClasses, LineChart, lineElementClasses } from '@mui/x-charts';
+import {  chartsGridClasses, LineChart, lineElementClasses } from '@mui/x-charts';
 import React, { ReactNode } from 'react';
 import { TimeRange } from '@/api/types/TimeRange';
 

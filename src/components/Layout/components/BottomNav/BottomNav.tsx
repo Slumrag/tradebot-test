@@ -1,5 +1,5 @@
 import { Badge, BottomNavigation, BottomNavigationAction, SxProps, Theme } from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DashboardIcon from '@/components/icons/DashboardIcon';
 import ChartIcon from '@/components/icons/ChartIcon';
 import CartIcon from '@/components/icons/CartIcon';

@@ -1,4 +1,3 @@
-import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import { Box, IconButton, Toolbar, Typography } from '@mui/material';
 import BurgerIcon from '@/components/icons/BurgerIcon';
