@@ -98,7 +98,7 @@ function App() {
             data={timeSeries}
             color={'#0082e8'}
             timeRange={timeRange}
-            sx={{ height: 192 }}
+            sx={{ flex: '1 0 192px', minHeight: 192 }}
             textOverlay={
               <Typography
                 color='success.main'

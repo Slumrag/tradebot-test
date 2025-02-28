@@ -1,7 +1,7 @@
 import { TimeSeriesData } from '@/utils/generateTimeSeries';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
-import {  chartsGridClasses, LineChart, lineElementClasses } from '@mui/x-charts';
-import React, { ReactNode } from 'react';
+import { chartsGridClasses, LineChart, lineElementClasses } from '@mui/x-charts';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { TimeRange } from '@/api/types/TimeRange';
 
 export type CurrencyChartProps = {
@@ -22,8 +22,26 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
   chartSx,
 }) => {
   const theme = useTheme();
+  const [containerHeight, setContainerHeight] = useState(0);
+  const containerRef = useRef<HTMLElement | null>(null!);
+  useEffect(() => {
+    const handleResize = () => {
+      const container = containerRef.current;
+      if (container) {
+        const height = container.clientHeight;
+        setContainerHeight(height);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const style: SxProps<Theme> = [
     {
+      position: 'absolute',
       [`& .${lineElementClasses.root}`]: {
         strokeWidth: 1,
       },
@@ -73,7 +91,7 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
   };
 
   return (
-    <Box position={'relative'} sx={sx}>
+    <Box position={'relative'} ref={containerRef} sx={sx}>
       {textOverlay && (
         <Box
           position={'absolute'}
@@ -81,6 +99,7 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
           justifyContent={'center'}
           alignItems={'center'}
           width={'100%'}
+          height='auto'
           top={0}
           lineHeight={1}
           zIndex={1000}
@@ -109,6 +128,7 @@ const CurrencyChart: React.FC<CurrencyChartProps> = ({
         ]}
         yAxis={[{ tickNumber: 8 }]}
         dataset={data}
+        height={containerHeight}
         series={[
           {
             dataKey: 'value',
