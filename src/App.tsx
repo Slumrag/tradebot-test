@@ -119,7 +119,16 @@ function App() {
           <TimeRangeSelector
             value={timeRange}
             onClick={handleTimeRangeSelect}
-            sx={{ p: '0 16px', fontSize: 12 }}
+            sx={{
+              p: '0 16px',
+              fontSize: 12,
+              '@media (max-width:375px)': {
+                fontSize: 11,
+              },
+              '@media (max-width:340px)': {
+                fontSize: 9,
+              },
+            }}
           />
         </Layout>
       </ThemeProvider>

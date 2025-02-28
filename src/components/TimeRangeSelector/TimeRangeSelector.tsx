@@ -1,5 +1,5 @@
 import { TimeRange } from '@/api/types/TimeRange';
-import { Box, Chip, Stack, SxProps, Typography } from '@mui/material';
+import { Chip, Stack, SxProps, Typography } from '@mui/material';
 import React from 'react';
 
 export type TimeRangeSelectorProps = {
@@ -16,11 +16,32 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
     { label: 'All time', value: 'all_time' },
   ];
   return (
-    <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} sx={sx}>
-      <Typography component='h3' fontWeight={'bold'} color='text.secondary' fontSize={'inherit'}>
+    <Stack
+      direction={'row'}
+      sx={{
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '0.5em',
+        ...sx,
+      }}
+    >
+      <Typography
+        component='h3'
+        variant='h3'
+        fontWeight={'bold'}
+        color='text.secondary'
+        fontSize={'inherit'}
+        textTransform={'capitalize'}
+      >
         Time range:
       </Typography>
-      <Stack direction={'row'} columnGap={'10px'}>
+      <Stack
+        direction={'row'}
+        columnGap={'0.83em'}
+        sx={{
+          flex: 1,
+        }}
+      >
         {chips.map((el, idx) => (
           <Chip
             key={idx}
@@ -30,8 +51,9 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
             className={el.value === value ? 'selected' : ''}
             sx={{
               fontSize: 'inherit',
-              width: 60,
-              height: 25,
+              maxWidth: 60,
+              width: '100%',
+              minHeight: '2em',
               color: 'text.secondary',
               borderColor: '#273246',
               '& .MuiChip-label': {
@@ -46,7 +68,7 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({ value, onClick, s
           ></Chip>
         ))}
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 
