@@ -18,7 +18,13 @@ const TopBar = () => {
           <BurgerIcon fontSize='inherit' />
         </IconButton>
         <Box flexGrow={1}>
-          <Typography component='h1' fontWeight={'bold'} textAlign={'center'} fontSize={'inherit'}>
+          <Typography
+            component='h1'
+            variant='h1'
+            fontWeight={'bold'}
+            textAlign={'center'}
+            fontSize={'inherit'}
+          >
             Dashboard
           </Typography>
         </Box>

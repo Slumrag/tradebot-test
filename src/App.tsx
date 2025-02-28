@@ -16,7 +16,11 @@ function App() {
   const [bot, setBot] = useState<string>();
   const [timeRange, setTimeRange] = useState<TimeRange>();
   const [profits, setProfits] = useState({});
-
+  const accountData = {
+    capital: 1.00865,
+    balance: 10850,
+    onHold: 24000,
+  };
   const handleBotSelect = (bot: string) => {
     setBot(bot);
   };
@@ -75,14 +79,33 @@ function App() {
       <CssBaseline />
       <ThemeProvider theme={themeOptions}>
         <Layout>
-          <Balance capital={1.00865} balance={10850} onHold={24000}></Balance>
+          <Balance
+            capital={accountData.capital}
+            balance={accountData.balance}
+            onHold={accountData.onHold}
+            sx={{
+              p: '0 12px',
+              fontSize: 12,
+              '@media (max-width:375px)': {
+                fontSize: 11,
+              },
+              '@media (max-width:340px)': {
+                fontSize: 9,
+              },
+            }}
+          />
           <CurrencyChart
             data={timeSeries}
             color={'#0082e8'}
             timeRange={timeRange}
             sx={{ height: 192 }}
             textOverlay={
-              <Typography color='success.main' fontSize={23} lineHeight={'inherit'}>
+              <Typography
+                color='success.main'
+                variant='caption'
+                fontSize={23}
+                lineHeight={'inherit'}
+              >
                 +32.6%
               </Typography>
             }

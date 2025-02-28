@@ -23,16 +23,6 @@ export const themeOptions: ThemeOptions = createTheme({
   },
   typography: {
     fontSize: 12,
-    h2: {
-      '@media (max-width:375px)': {
-        fontSize: '0.95em',
-      },
-    },
-    h3: {
-      '@media (max-width:375px)': {
-        fontSize: '0.95em',
-      },
-    },
   },
   components: {
     MuiButtonBase: {
