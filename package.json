@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "test:chrome": "npx playwright test --ui --project=chrome",
-    "test:safari": "npx playwright test --ui --project=safari"
+    "test:chrome": "npx playwright test --headed --project=chrome",
+    "test:safari": "npx playwright test --headed --project=safari"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
