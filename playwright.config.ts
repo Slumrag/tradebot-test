@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test'; // import devices
+import { defineConfig, devices } from '@playwright/test';
 const base = 'http://localhost:5173/tradebot-test';
 const devServerUrl = 'http://localhost:5173/tradebot-test';
 
@@ -12,6 +12,7 @@ export default defineConfig({
       name: 'safari',
       use: {
         ...devices['iPhone 6'],
+        deviceScaleFactor: 1,
       },
     },
   ],
